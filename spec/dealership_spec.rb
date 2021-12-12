@@ -1,4 +1,5 @@
 require 'rspec'
+require 'pry'
 require './lib/car'
 require './lib/dealership'
 
@@ -38,7 +39,8 @@ RSpec.describe Dealership do
     expect(dealership.cars_by_make("Toyota")).to eq([car_2, car_3])
     expect(dealership.cars_by_make("Ford")).to eq([car_1])
     expect(dealership.total_value).to eq(156000)
-    #expect(dealership.details).to eq({15600, "123 Main Street"})
+    #binding.pry
+    expect(dealership.details).to eq({"total_value" => 156000, "address" => "123 Main Street"})
   end
 
   it 'IT4 p1' do
@@ -53,7 +55,7 @@ RSpec.describe Dealership do
     dealership.add_car(car_4)
     dealership.total_value
     expect(dealership.average_price_of_car).to eq("39000")
-    expect(dealership.cars_sorted_by_price).to eq([car_3, car_2, car_4, car_1])
+    expect(dealership.cars_sorted_by_price).to eq([car_3, car_4, car_2, car_1])
   end
 
 
